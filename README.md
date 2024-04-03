@@ -1,5 +1,5 @@
 # $`\textcolor{blue}{\text{Learning Log}}`$
-A script to build a web page (site) to track learning (through journaling).
+A script to build a web page (site) to track learning (through journalll_enving).
 Richard Ay (March 2024, *updated March 2024*)
 
 ## $`\textcolor{blue}{\text{Table of Contents}}`$
@@ -13,7 +13,10 @@ Richard Ay (March 2024, *updated March 2024*)
 
 ## Setup
 
-*To use this program, activate the 'virtual environment' "ll_Env".  
+To use this program, activate the 'virtual environment' "ll_Env".  Then setup a
+new Django project using the command: "django-admin start project ll_project .". 
+NOTE the trailing '.' is IMPORTANT.  For additional details on manipulating Django
+see the separate ".md" file https://github.com/CaptainRich/GitAPI/blob/main/django.md  
 
 ## Environment
 A virtual environment is created so that the installation of matplotlib and plotly
@@ -66,9 +69,7 @@ The hn_articles script queries the hacker-news web site for the top 30 articles.
 
 ## Technologies and Imports
 The following modules are necessary imports (imported in the .py files):  
-- matplotlib  
-- plotly
-- pandas
+- django
  
 
 ## Images
@@ -78,11 +79,6 @@ by the script:
 The 'Python' repository:  
 ![Python Repository](https://github.com/CaptainRich/GitAPI/blob/main/images/python_repos.png)  
 
-The 'Javascript' repository':  
-![Javascript Repository](https://github.com/CaptainRich/GitAPI/blob/main/images/javascript_repos.png)  
-
-The 'terminal status' report:  
-![Terminal Status Report](https://github.com/CaptainRich/GitAPI/blob/main/images/terminal_status.png)  
 
 
 
