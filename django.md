@@ -6,6 +6,7 @@ Richard Ay (April 2024, *updated April 2024*)
 ## $`\textcolor{blue}{\text{Table of Contents}}`$
 * [Setup](#setup)
 * [Project and Database](#Project-and-Database)
+* [Building/Starting the Application](#Building/Starting-the-Application)
 
 
 ## Basic Setup
@@ -29,6 +30,7 @@ command can be used to install Django:
 
 Subsequently the installations can be verified with the command:   
 **'python -m pip show django'**  
+
 ================================================================================
 
 ## Project and Database
@@ -46,14 +48,37 @@ SQLite database:
 
 **python manage.py migrate**  
 
+Anytime the database schema is changed (i.e. new models are added) Django must 
+be made aware of the changes, so as to update the database. The following 
+terminal commands are necessary to accomplish this change/update:  
+
+**python manage.py makemigrations "app_name"**  
+**python manage.py migrate**  
+
 The application (project) must run in a server.  The server also checks to make 
 sure the project is setup properly.  The following terminal command will
-start the (local) server at http://127.0.0.1:8000/ or http://localhost:8000  
+start the (local) server at http://127.0.0.1:8000/ or http://localhost:8000. Note
+this assumes the local environment has been activated!
 
 **python manage.py runserver**  
 
 This server should remain running for future development and local usage of the
 application.
 
+
+================================================================================
+
+## Building/Starting the Application
+Leave the development server running and open a new terminal window.  In this new
+terminal, activate the local environment, then issue the terminal command:  
+
+**python manage.py startapp "app_name"**  
+
+A 'superuser' must be created who has all privileges.  The following terminal
+command should be issued to setup the 'superuser':  
+
+**python manage.py createsuperuser**  
+
+Then follow the prompts to finish setting up the 'superuser'.
 
 
