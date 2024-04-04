@@ -1,12 +1,13 @@
 # $`\textcolor{blue}{\text{Django Implementation}}`$
-This markup file details how to setup a Django project for Python.
+This markup file details how to setup a Django project for Python.  
 Richard Ay (April 2024, *updated April 2024*)  
 
 
 ## $`\textcolor{blue}{\text{Table of Contents}}`$
 * [Setup](#setup)
 * [Project and Database](#Project-and-Database)
-* [Building/Starting the Application](#Building/Starting-the-Application)
+* [Building and Starting the Application](#Building-and-Starting-the-Application)
+* [Django Shell](#Django-Shell)
 
 
 ## Basic Setup
@@ -68,7 +69,7 @@ application.
 
 ================================================================================
 
-## Building/Starting the Application
+## Building and Starting the Application
 Leave the development server running and open a new terminal window.  In this new
 terminal, activate the local environment, then issue the terminal command:  
 
@@ -82,3 +83,13 @@ command should be issued to setup the 'superuser':
 Then follow the prompts to finish setting up the 'superuser'.
 
 
+================================================================================
+
+## Django Shell
+Django supports an interactive terminal - a shell, similar to the Python shell
+IDLE.  The following terminal command invokes the shell:
+
+**python manage.py shell**
+
+From within this 'shell', python/django statements can be issued to test and/or
+troubleshoot the application.  To exit the shell, issue the CRTL-Z key combination.  
