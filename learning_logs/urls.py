@@ -1,11 +1,13 @@
 """ Define the URL patterns for learning_logs. """
 
 from django.urls import path
-from . import views
+from . import views              # Import 'views.py' from the same directory as this file.
 
 app_name = 'learning_logs'
 
 urlpatterns = {
-    # The home page
-    path( '', views.index, name='index' )
+    # The home page. A list of pages that can be requested from this app.  The '' empty
+    # string matches the base URL.  The 2nd argument defines which function to call in
+    # views.py.  The 3rd argument defines a name for this pattern for later reference. 
+    path( '', views.index, name='index' )  # 
 }
