@@ -1,0 +1,19 @@
+<!-- The 'child' Topics page. -->
+
+<!-- Inherit the base template. -->
+{% extends 'learning_logs/base.html' %}
+
+{% block content %}
+
+<!-- Define the content to fill the base template layout. -->
+<p>Topics</p>
+
+<ul>
+    {% for topic in topics %}
+      <li>{{topic.text }}</li>
+    {% empty %}
+      <li>No topics have been added yet.</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
