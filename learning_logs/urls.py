@@ -13,4 +13,7 @@ urlpatterns = [
 
     # The URL pattern for the 'Topics' page.
     path( 'topics', views.topics, name='topics' ),
+
+    # The detail page (URL) for a single topic.
+    path( 'topics/<int:topic_id>/', views.topic, name='topic' ),
 ]

@@ -1,0 +1,22 @@
+<!-- The 'child' Topic page to display a single topic. -->
+
+<!-- Inherit the base template. -->
+{% extends 'learning_logs/base.html' %}
+
+{% block content %}
+
+<!-- Define the content to fill the base template layout. -->
+<p><b>Topic: {{ topic.text }} </b></p>
+
+<p>Entries:</p>
+<ul>
+    {% for entry in entries %}
+      <li>
+        <p><b>{{entry.date_added|date:'M d, Y H:i' }}</b></p>
+        <p>{{entry.text|linebreaks }}</p>
+      </li>
+    {% empty %}
+      <li>There are no entries for this topic yet.</li>
+    {% endfor %}
+</ul>
+{% endblock content %}
