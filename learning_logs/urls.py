@@ -1,7 +1,7 @@
 """ Define the URL patterns for learning_logs. """
 
 from django.urls import path
-from . import views              # Import 'views.py' from the same directory as this file.
+from .import views              # Import 'views.py' from the same directory as this file.
 
 app_name = 'learning_logs'
 
@@ -16,4 +16,8 @@ urlpatterns = [
 
     # The detail page (URL) for a single topic.
     path( 'topics/<int:topic_id>/', views.topic, name='topic' ),
+
+    # The page to allow users to create a new topic.
+    path( 'new_topic/', views.new_topic, name='new_topic' ),
+
 ]
