@@ -9,6 +9,12 @@
 <p><b>Topic: {{ topic.text }} </b></p>
 
 <p>Entries:</p>
+
+<!-- Include a link to create a new entry for this topic. -->
+<p>
+  <a href="{% url 'learning_logs:new_entry' topic.id %}">Add new entry</a>
+</p>
+
 <ul>
     {% for entry in entries %}
       <li>
