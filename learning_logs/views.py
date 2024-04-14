@@ -76,17 +76,17 @@ def edit_entry( request, entry_id ):
 
     if request.method != 'POST':       # Request must be 'GET"
         # The initial request, pre-fill the form with the current entry's text.
-        form = EntryForm( instance= entry )
+        form = EntryForm( instance=entry )
 
     else:
         # 'POST' data submitted; process the data.
         form = EntryForm( instance=entry, data=request.POST )
         if form.is_valid():
             form.save()
-            return redirect( 'learning_logs:topic', topic_id =topic.id )
+            return redirect( 'learning_logs:topic', topic_id=topic.id )
         
     # Display a blank or invalid form, via the context dictionary.
-    context = { 'entry':entry, 'topic': topic, 'form': form }
+    context = { 'entry': entry, 'topic': topic, 'form': form }
     return render( request, 'learning_logs/edit_entry.html', context )
 
  
