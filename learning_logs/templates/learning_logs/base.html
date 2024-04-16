@@ -6,8 +6,24 @@
          'topis'. -->
     <a href="{% url 'learning_logs:index' %}">Learning Log</a> -
     <a href="{% url 'learning_logs:topics' %}">Topics</a>
+
+    {% if user.is_authenticated %}
+      <br><br>Hello {{user.username}}
+    {% else %}
+      <a href="{% url 'accounts:login' %}">Log in</a>
+    {% endif %}
 </p>
 
 <!-- Define the place holder for the page, where the child template will
      ultimately define what goes here. -->
 {% block content %}{% endblock content %}
+
+
+<!-- Setup the 'logout' page. -->
+{% if user.is_authenticated %}
+  <hr />  <!-- Add a horizontal rule to breakup the page. -->
+  <form action="{% url 'accounts:logout' %}" method="post">
+     {% csrf_token %}
+     <button name='submit'>Logout</button>
+  </form>
+{% endif %}
