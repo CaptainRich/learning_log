@@ -1,0 +1,19 @@
+<!-- The 'child' Entry page to  create a new entry for the selected topic. -->
+
+<!-- Inherit the base template. -->
+{% extends 'learning_logs/base.html' %}
+
+{% block content %}
+
+  <!-- Define the content to fill the 'new topic' page layout. -->
+  <!-- Show the current topic, as a reference for the new entry. -->
+  <p><a href=""{% url 'learning_logs:topic' topic.id %}>{{ topic }}</a>></p>
+
+  <p>Add a new entry: </p>
+  <form action="{% url 'learning_logs:new_entry' topic.id %}" method='post' >
+    {% csrf_token %}   <!-- Prevent a 'cross-site request forgery' -->
+    {{ form.as_div }}  <!-- Display the form, as 'div' elements. -->
+    <button name='submit'>Add entry</button>
+  </form>
+
+{% endblock content %}

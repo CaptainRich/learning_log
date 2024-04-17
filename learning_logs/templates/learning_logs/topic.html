@@ -9,11 +9,22 @@
 <p><b>Topic: {{ topic.text }} </b></p>
 
 <p>Entries:</p>
+
+<!-- Include a link to create a new entry for this topic. -->
+<p>
+  <a href="{% url 'learning_logs:new_entry' topic.id %}">Add new entry</a>
+</p>
+
 <ul>
     {% for entry in entries %}
       <li>
         <p><b>{{entry.date_added|date:'M d, Y H:i' }}</b></p>
         <p>{{entry.text|linebreaks }}</p>
+
+        <!-- Include a link to edit an existing entry. -->
+        <p>
+          <a href="{% url 'learning_logs:edit_entry' entry.id %}">Edit entry</a>
+        </p>
       </li>
     {% empty %}
       <li>There are no entries for this topic yet.</li>

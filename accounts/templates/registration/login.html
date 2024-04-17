@@ -1,0 +1,21 @@
+<!-- The 'login' page. -->
+
+<!-- Inherit the base template. -->
+{% extends 'learning_logs/base.html' %}
+
+{% block content %}
+
+  <!-- Define the content to fill the base template layout. -->
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  <form action="{% url 'accounts:login' %}" method='POST' >
+    {% csrf_token %}
+    {{ form.as_div }}
+
+    <button name="submit">Log in</button>
+  </form>\
+
+  {% endblock content %}
+  

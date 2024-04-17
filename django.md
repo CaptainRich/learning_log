@@ -71,9 +71,14 @@ application.
 
 ## Building and Starting the Application
 Leave the development server running and open a new terminal window.  In this new
-terminal, activate the local environment, then issue the terminal command:  
+terminal, activate the local environment, then start a new application by issuing
+ the terminal command:  
 
-**python manage.py startapp "app_name"**  
+**python manage.py startapp "app_name"**   
+
+This command creates a new subdirectory for the application 'app_name'.  (A Django  
+project is actually a group of applications that work together. Each application 
+will have .py files for: models, admin, and view.)
 
 A 'superuser' must be created who has all privileges.  The following terminal
 command should be issued to setup the 'superuser':  
