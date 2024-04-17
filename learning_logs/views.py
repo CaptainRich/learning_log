@@ -2,6 +2,7 @@
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.http import Http404
 
 from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
@@ -25,6 +26,11 @@ def topics( request ):
 def topic( request, topic_id ):
     """ Show a single topic and all its entries. """
     topic   = Topic.objects.get( id=topic_id )
+
+    # Make sure he topic belongs to the current (logged in) user.
+    if topic.owner != request.user:
+        raise Http404
+    
     entries = topic.entry_set.order_by( '-date_added' )    #  Sort by 'reverse' date
     context = {'topic': topic, 'entries': entries }
     return render( request, 'learning_logs/topic.html', context )
@@ -41,7 +47,10 @@ def new_topic( request ):
         # The user posted data, process it.
         form = TopicForm( data=request.POST ) # Make an instance of the Topic form
         if form.is_valid():
-            form.save()
+            new_topic = form.save( commit=False )
+            new_topic.owner = request.user
+            new_topic.save()
+
             return redirect( 'learning_logs:topics' )
         
     # Display a blank or invalid form, via the 'context' dictionary.
@@ -79,6 +88,10 @@ def edit_entry( request, entry_id ):
     """ Allow a user to edit an existing entry. """
     entry = Entry.objects.get( id=entry_id )  # Get the current 'entry' object
     topic = entry.topic
+
+    # Make sure the entry (topic) belongs to the current (logged in) user.
+    if topic.owner != request.user:
+        raise Http404
 
     if request.method != 'POST':       # Request must be 'GET"
         # The initial request, pre-fill the form with the current entry's text.
