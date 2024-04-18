@@ -97,4 +97,12 @@ IDLE.  The following terminal command invokes the shell:
 **python manage.py shell**
 
 From within this 'shell', python/django statements can be issued to test and/or
-troubleshoot the application.  To exit the shell, issue the CRTL-Z key combination.  
+troubleshoot the application.  To exit the shell, issue the CRTL-Z key combination.   
+
+
+================================================================================
+
+## Installed Apps
+A Django project is a collection of applications.  All applications must be listed in 
+the main 'settings.py' file.  The applications should be separated into (appropriately
+commented) groups: 'my project apps', '3rd party apps', 'default django apps'.
