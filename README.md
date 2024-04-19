@@ -60,6 +60,7 @@ From VSCode, by issuing the command (note the suffix ".py' is required)
 ## Technologies and Imports
 The following modules are necessary imports (imported in the .py files):  
 - django
+- django-bootstrap5
  
 
 ## Images
