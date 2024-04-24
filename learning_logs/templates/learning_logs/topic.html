@@ -3,31 +3,35 @@
 <!-- Inherit the base template. -->
 {% extends 'learning_logs/base.html' %}
 
+{% block page_header %}
+  <h1>{{ topic.text }}</h1>
+{% endblock page_header %}
+
 {% block content %}
 
-<!-- Define the content to fill the base template layout. -->
-<p><b>Topic: {{ topic.text }} </b></p>
-
-<p>Entries:</p>
+<!-- Define the content to fill the page for an individual topic. -->
 
 <!-- Include a link to create a new entry for this topic. -->
 <p>
   <a href="{% url 'learning_logs:new_entry' topic.id %}">Add new entry</a>
 </p>
 
-<ul>
-    {% for entry in entries %}
-      <li>
-        <p><b>{{entry.date_added|date:'M d, Y H:i' }}</b></p>
-        <p>{{entry.text|linebreaks }}</p>
 
-        <!-- Include a link to edit an existing entry. -->
-        <p>
-          <a href="{% url 'learning_logs:edit_entry' entry.id %}">Edit entry</a>
-        </p>
-      </li>
+    {% for entry in entries %}
+      <div class="card mb-3">
+        <!-- Setup the card header w/ timestamp and the edit link. -->
+        <h4 class="card-header">
+          {{ entry.date_added|date:'M d, Y H:i' }}
+          <small><a href="{% url 'learning_logs:edit_entry' entry.id %}">
+                  Edit Entry</a></small>
+        </h4>
+
+        <!-- Setup the card body, with the text for the current entry. -->
+        <div class="card-body">{{ entry.text|linebreaks }}</div>
+      </div>
+
     {% empty %}
       <li>There are no entries for this topic yet.</li>
     {% endfor %}
-</ul>
+
 {% endblock content %}
