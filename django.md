@@ -8,6 +8,7 @@ Richard Ay (April 2024, *updated April 2024*)
 * [Project and Database](#Project-and-Database)
 * [Building and Starting the Application](#Building-and-Starting-the-Application)
 * [Django Shell](#Django-Shell)
+* [Installed Apps](#Installed-Apps)
 
 
 ## Basic Setup
